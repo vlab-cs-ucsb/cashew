@@ -1,0 +1,11 @@
+target=TestLogicalOps
+symbolic.method = TestLogicalOps.testShiftL(sym)
+
+classpath=${jpf-security}/build/examples
+sourcepath=${jpf-security}/src/examples
+
+symbolic.min_int=0
+symbolic.max_int=5
+symbolic.dp=z3
+search.multiple_errors=true
+listener = sidechannel.TimingChannelListener

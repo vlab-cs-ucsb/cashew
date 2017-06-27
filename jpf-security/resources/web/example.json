@@ -1,0 +1,240 @@
+{
+  "content": "",
+  "children": [
+    {
+      "content": "a_1_SYMINT \u003e b_2_SYMINT",
+      "children": [
+        {
+          "content": "a_1_SYMINT \u003e b_2_SYMINT",
+          "children": [
+            {
+              "content": "a_1_SYMINT \u003e CONST_300",
+              "children": [
+                {
+                  "content": "(b_2_SYMINT + CONST_300) \u003d\u003d CONST_200",
+                  "children": [
+                    {
+                      "content": "(b_2_SYMINT + CONST_300) \u003d\u003d CONST_200",
+                      "children": [
+                        {
+                          "content": "(b_2_SYMINT + CONST_300) \u003d\u003d CONST_200",
+                          "children": [
+                            {
+                              "content": "(b_2_SYMINT + CONST_300) \u003d\u003d CONST_200",
+                              "children": [
+                                {
+                                  "content": "(b_2_SYMINT + CONST_300) \u003d\u003d CONST_200",
+                                  "children": []
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "content": "(b_2_SYMINT + CONST_300) !\u003d CONST_200",
+                  "children": [
+                    {
+                      "content": "(b_2_SYMINT + CONST_300) !\u003d CONST_200",
+                      "children": [
+                        {
+                          "content": "(b_2_SYMINT + CONST_300) !\u003d CONST_200",
+                          "children": [
+                            {
+                              "content": "(b_2_SYMINT + CONST_300) !\u003d CONST_200",
+                              "children": [
+                                {
+                                  "content": "(b_2_SYMINT + CONST_300) !\u003d CONST_200",
+                                  "children": []
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "content": "a_1_SYMINT \u003c\u003d CONST_300",
+              "children": [
+                {
+                  "content": "a_1_SYMINT \u003c CONST_5",
+                  "children": [
+                    {
+                      "content": "CONST_0 \u003c a_1_SYMINT",
+                      "children": [
+                        {
+                          "content": "CONST_1 \u003c a_1_SYMINT",
+                          "children": [
+                            {
+                              "content": "CONST_2 \u003c a_1_SYMINT",
+                              "children": [
+                                {
+                                  "content": "CONST_3 \u003c a_1_SYMINT",
+                                  "children": [
+                                    {
+                                      "content": "CONST_3 \u003c a_1_SYMINT",
+                                      "children": [
+                                        {
+                                          "content": "CONST_3 \u003c a_1_SYMINT",
+                                          "children": [
+                                            {
+                                              "content": "CONST_3 \u003c a_1_SYMINT",
+                                              "children": [
+                                                {
+                                                  "content": "CONST_3 \u003c a_1_SYMINT",
+                                                  "children": []
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "content": "CONST_3 \u003e\u003d a_1_SYMINT",
+                                  "children": [
+                                    {
+                                      "content": "CONST_3 \u003e\u003d a_1_SYMINT",
+                                      "children": [
+                                        {
+                                          "content": "CONST_3 \u003e\u003d a_1_SYMINT",
+                                          "children": [
+                                            {
+                                              "content": "CONST_3 \u003e\u003d a_1_SYMINT",
+                                              "children": []
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "content": "CONST_2 \u003e\u003d a_1_SYMINT",
+                              "children": [
+                                {
+                                  "content": "CONST_2 \u003e\u003d a_1_SYMINT",
+                                  "children": [
+                                    {
+                                      "content": "CONST_2 \u003e\u003d a_1_SYMINT",
+                                      "children": [
+                                        {
+                                          "content": "CONST_2 \u003e\u003d a_1_SYMINT",
+                                          "children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "content": "CONST_1 \u003e\u003d a_1_SYMINT",
+                          "children": [
+                            {
+                              "content": "CONST_1 \u003e\u003d a_1_SYMINT",
+                              "children": [
+                                {
+                                  "content": "CONST_1 \u003e\u003d a_1_SYMINT",
+                                  "children": [
+                                    {
+                                      "content": "CONST_1 \u003e\u003d a_1_SYMINT",
+                                      "children": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "content": "CONST_0 \u003e\u003d a_1_SYMINT",
+                      "children": [
+                        {
+                          "content": "CONST_0 \u003e\u003d a_1_SYMINT",
+                          "children": [
+                            {
+                              "content": "CONST_0 \u003e\u003d a_1_SYMINT",
+                              "children": [
+                                {
+                                  "content": "CONST_0 \u003e\u003d a_1_SYMINT",
+                                  "children": []
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "content": "a_1_SYMINT \u003e\u003d CONST_5",
+                  "children": [
+                    {
+                      "content": "a_1_SYMINT \u003e\u003d CONST_5",
+                      "children": [
+                        {
+                          "content": "a_1_SYMINT \u003e\u003d CONST_5",
+                          "children": [
+                            {
+                              "content": "a_1_SYMINT \u003e\u003d CONST_5",
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "content": "a_1_SYMINT \u003c\u003d b_2_SYMINT",
+      "children": [
+        {
+          "content": "a_1_SYMINT \u003c\u003d b_2_SYMINT",
+          "children": [
+            {
+              "content": "(a_1_SYMINT * CONST_2) \u003e CONST_0",
+              "children": [
+                {
+                  "content": "(a_1_SYMINT * CONST_2) \u003e CONST_0",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "content": "(a_1_SYMINT * CONST_2) \u003c\u003d CONST_0",
+              "children": [
+                {
+                  "content": "(a_1_SYMINT * CONST_2) \u003c\u003d CONST_0",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

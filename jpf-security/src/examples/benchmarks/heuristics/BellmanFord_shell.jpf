@@ -1,0 +1,27 @@
+classpath=${jpf-security}/build/examples
+sourcepath=${jpf-security}/src/examples
+
+@using jpf-security
+@using jpf-symbc
+
+target=benchmarks.BellmanFord
+
+shell=wcanalysis.WorstCaseAnalyzer
+
+symbolic.dp=z3
+
+# Set history size for the stateful decision policy
+symbolic.wc.policy.history.size=0
+
+symbolic.worstcase.policy.inputsize=2
+symbolic.worstcase.input.max=12
+
+symbolic.worstcase.verbose=true
+symbolic.worstcase.outputpath=${jpf-security}/bellman_results
+
+symbolic.method=benchmarks.BellmanFord.runBellmanFord(con#con#con)
+
+symbolic.optimizechoices=false
+
+
+#symbolic.debug=true

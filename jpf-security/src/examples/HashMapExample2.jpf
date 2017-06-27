@@ -1,0 +1,11 @@
+target=HashMapExample2
+symbolic.method=HashMapExample2.test(sym)
+#symbolic.strings=true
+classpath=${jpf-security}/build/examples
+sourcepath=${jpf-security}/src/examples
+
+#listener = sidechannel.TimingChannelListener
+symbolic.min_int=0
+symbolic.max_int=99
+
+symbolic.dp=z3bitvector

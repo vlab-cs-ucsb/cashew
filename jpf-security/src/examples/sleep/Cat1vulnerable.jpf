@@ -1,0 +1,7 @@
+target=sleep.Category1_vulnerable
+
+classpath=${jpf-security}/build/examples;
+sourcepath=${jpf-security}/src/examples
+
+
+listener = sidechannel.util.InstructionMonitor

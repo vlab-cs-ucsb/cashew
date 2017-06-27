@@ -1,0 +1,68 @@
+target=green.GreenTest
+target.args = s
+
+classpath=${jpf-security}/build/examples
+sourcepath=${jpf-security}/src/examples
+
+symbolic.string_dp=ABC
+symbolic.string_dp_timeout_ms=3000
+symbolic.debug=true
+search.depth_limit = 5
+search.multiple_errors=true
+symbolic.strings = true
+
+#In order to store both the counts and the model counting objects, model_count.mode must end with "modelcounters" and a store must be used. 
+
+model_count.mode=abc.string.usemodelcounters
+model_count.string_length_bound = 0
+model_count.vars = s
+
+vm.storage.class=nil
+
+listener = sidechannel.GreenListener
+
+
+#Set symbolic.green to true to use Green
+symbolic.green=true
+
+#Choose which Green taskmanager to use. Use SerialTaskManager as default. 
+green.taskmanager = za.ac.sun.cs.green.taskmanager.SerialTaskManager
+
+#Select which Green services to use.
+#Current options that have been tested are 'sat', 'count'
+green.services = sat, count
+
+#Define the services. 
+#If order of the services matter, nest them with '(' ')' as shown below
+#Complete list of possible services are given below. 
+
+green.service.sat =  (reduceVar (order (renameVar (renameAlph (abc)))))
+green.service.sat.reduceVar = za.ac.sun.cs.green.service.canonizer.VariableRemover
+green.service.sat.order = za.ac.sun.cs.green.service.canonizer.OrderingService
+green.service.sat.renameVar = za.ac.sun.cs.green.service.canonizer.VariableRenamer
+green.service.sat.renameAlph = za.ac.sun.cs.green.service.canonizer.AlphabetRenamer
+green.service.sat.abc = za.ac.sun.cs.green.service.abc.ABCService
+
+
+green.service.count =  (reduceVar (order (renameVar (renameAlph (abc)))))
+green.service.count.reduceVar = za.ac.sun.cs.green.service.canonizer.VariableRemover
+green.service.count.order = za.ac.sun.cs.green.service.canonizer.OrderingService
+green.service.count.renameVar = za.ac.sun.cs.green.service.canonizer.VariableRenamer
+green.service.count.renameAlph = za.ac.sun.cs.green.service.canonizer.AlphabetRenamer
+green.service.count.abc = za.ac.sun.cs.green.service.abc.ABCCountService
+
+
+#configure a store. Standard is to use a Redis Store. This requires Redis and jedis. 
+#green.store = za.ac.sun.cs.green.store.redis.RedisStore
+
+
+#All possible services:
+
+#DEPENDENCY SLICING
+#factorizer.CountFactorizerService, factorizer.SATFactorizerService, factorizer.ModelFactorizerService
+
+#CANONIZERS 
+#canonizer.LIATermNormalizationService, canonizer.StringNormalizationSerice, canonizer.SATNormalizationService, canonizer.VariableRemover, canonizer.OrderingService, canonizer.VariableRenamer, canonizer.AlphabetRenamer
+
+#MODEL COUNTERS AND SOVLERS
+#abc.ABCCountService, abc.ABCService, choco.SATChocoService, choco.ModelChocoService, choco3.ModelChocoService, choco3.SATChocoService, cvc3.SATCVC3Service, latter.CountLattEService, z3.ModelZ3JavaService, z3.SATZ3JavaService, z3.SATZ3Service

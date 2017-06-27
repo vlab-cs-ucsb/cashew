@@ -1,0 +1,24 @@
+target=sidechannel.noise.Example3
+
+classpath=${jpf-security}/build/examples;
+sourcepath=${jpf-security}/src/examples
+
+#listener = sidechannel.util.InstructionMonitor
+listener = sidechannel.singlerun.noise.SymbolicNoiseQuantifier
+
+symbolic.reliability.tmpDir=${jpf-security}/build/tmp
+symbolic.reliability.omegaPath=${jpf-security}/tools/omega/oc
+symbolic.reliability.lattePath=${jpf-security}/tools/latte-integrale-1.7.3/bin/count
+symbolic.reliability.barvinokPath=${jpf-security}/tools/barvinok-0.39/bin/iscc
+
+noisy = true
+
+sidechannel.min_high = 0
+sidechannel.max_high = 2
+
+symbolic.min_int=0
+symbolic.max_int=9
+
+symbolic.counter=barvinok
+
+#sidechannel.verbose = true

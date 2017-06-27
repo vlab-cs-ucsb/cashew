@@ -1,0 +1,12 @@
+target=StringSolving
+#symbolic.method=StringSolving.test(con)
+
+classpath=${jpf-security}/build/examples
+sourcepath=${jpf-security}/src/examples
+
+listener = sidechannel.TimingChannelListener
+symbolic.min_int=-1000
+symbolic.max_int=1000
+symbolic.debug=true
+#symbolic.visualizer.basepath=${jpf-symbc}/prettyprint
+#symbolic.visualizer.outputformat=pdf

@@ -1,0 +1,15 @@
+target=InsertionSort
+symbolic.method=InsertionSort.sort(sym)
+
+classpath=${jpf-security}/build/examples
+sourcepath=${jpf-security}/src/examples
+
+listener = sidechannel.TimingChannelListener
+symbolic.min_long=-100
+symbolic.max_long=100
+symbolic.min_int=-100
+symbolic.max_int=100
+symbolic.dp=z3bitvector
+
+symbolic.visualizer.basepath=${jpf-symbc}/prettyprint
+symbolic.visualizer.outputformat=pdf

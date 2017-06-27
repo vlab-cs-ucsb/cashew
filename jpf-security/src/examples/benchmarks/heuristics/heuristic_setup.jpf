@@ -1,0 +1,30 @@
+##
+## General
+##
+
+resultsdir=${jpf-security}/results
+
+##
+## Heuristic results as .csv file
+##
+publisher=wcanalysis.heuristic.HeuristicResultsPublisher
+#publisher=wcanalysis.heuristic.PolicyResultsPublisher
+report.console.class=${publisher}
+report.console.wc.policy.resultsdir=${resultsdir}/policy
+report.console.wc.heuristic.resultsdir=${resultsdir}/heuristic
+report.console.wc.smtlib=true
+report.console.wc.omega=true
+
+##
+## Heuristic and counts collector listener setup
+##
+
+## Visualization
+symbolic.wc.visualizer.showinstructions=false
+symbolic.wc.policy.visualizer.outputpath=${resultsdir}/policy/vis
+symbolic.wc.heuristic.visualizer.outputpath=${resultsdir}/heuristic/vis
+
+## Serialization
+symbolic.wc.policy.serializer.outputpath=${resultsdir}/serialized
+symbolic.wc.heuristic.serializer.inputpath=${symbolic.wc.policy.serializer.outputpath}
+

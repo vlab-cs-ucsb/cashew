@@ -1,0 +1,7 @@
+@include=../SortedListInsert.jpf
+@include=heuristic_setup.jpf
+
+symbolic.method=benchmarks.SortedListInsert$List.insert(con)
+
+target.args=3
+

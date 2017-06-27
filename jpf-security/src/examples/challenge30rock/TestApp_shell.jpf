@@ -1,0 +1,25 @@
+classpath=${jpf-security}/build/examples
+sourcepath=${jpf-security}/src/examples
+
+target=challenge30rock.Sample
+
+#symbolic.strings=true
+
+@using jpf-security
+@using jpf-symbc
+shell=wcanalysis.WorstCaseAnalyzer
+
+symbolic.dp=z3bitvector
+#target.args=2
+# Set history size for the stateful decision policy
+#symbolic.wc.history.size=1
+
+symbolic.worstcase.policy.inputsize=2
+symbolic.worstcase.input.max=5
+
+symbolic.worstcase.verbose=true
+symbolic.worstcase.outputpath=${jpf-security}/challenge30rock_results_new
+
+symbolic.method=challenge30rock.Sample.run(con#con)
+
+#symbolic.debug=true

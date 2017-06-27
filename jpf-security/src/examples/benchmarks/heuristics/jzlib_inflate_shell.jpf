@@ -1,0 +1,24 @@
+@include=../jzlib_inflate.jpf
+
+@using jpf-security
+@using jpf-symbc
+
+
+symbolic.min_int=0
+symbolic.max_int=255
+symbolic.dp=z3bitvector
+
+shell=wcanalysis.WorstCaseAnalyzer
+
+# Set history size for the stateful decision policy
+symbolic.wc.policy.history.size=0
+
+symbolic.worstcase.policy.inputsize=5
+symbolic.worstcase.input.max=10
+
+symbolic.worstcase.verbose=true
+symbolic.worstcase.outputpath=${jpf-security}/jzlib_results/inflate
+
+symbolic.method=benchmarks.com.jcraft.jzlib.examples.symbolic.JZlibInflate.performInflation(con#con#con#con)
+
+

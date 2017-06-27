@@ -1,0 +1,6 @@
+target=benchmarks.InsertionSort
+target.args=5
+
+
+classpath=${jpf-security}/build/examples
+sourcepath=${jpf-security}/src/examples

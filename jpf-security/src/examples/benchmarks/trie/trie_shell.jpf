@@ -1,0 +1,30 @@
+classpath=${jpf-security}/build/examples
+sourcepath=${jpf-security}/src/examples
+
+target=benchmarks.trie.Trie
+
+#symbolic.strings=true
+
+@using jpf-security
+@using jpf-symbc
+shell=wcanalysis.WorstCaseAnalyzer
+
+symbolic.dp=z3
+symbolic.min_int=0
+symbolic.max_int=5
+symbolic.min_char=0
+symbolic.max_char=5
+#target.args=2
+# Set history size for the stateful decision policy
+symbolic.wc.history.size=0
+
+symbolic.worstcase.policy.inputsize=1
+symbolic.worstcase.input.max=5
+#symbolic.worstcase.reusepolicy=true
+
+symbolic.worstcase.verbose=true
+symbolic.worstcase.outputpath=${jpf-security}/trie
+
+symbolic.method=benchmarks.trie.Trie.get(con)
+
+#symbolic.debug=true

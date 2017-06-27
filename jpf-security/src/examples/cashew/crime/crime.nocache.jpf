@@ -1,0 +1,46 @@
+target = cashew.CrimeWithString
+target.args = OverrideMe
+
+#symbolic.min_int=0
+#symbolic.max_int=630
+#symbolic.min_byte=0
+#symbolic.max_byte=310
+
+classpath=${jpf-security}/build/main;${jpf-security}/build/examples
+sourcepath=${jpf-security}/src/examples
+
+listener=sidechannel.GreenListener
+
+model_count.mode=abc.string
+model_count.vars=l
+model_count.string_length_bound = 12
+
+symbolic.strings = true
+symbolic.string_dp = ABC
+symbolic.debug = false
+
+symbolic.green = true
+
+green.services = sat,count
+
+green.taskmanager = za.ac.sun.cs.green.taskmanager.SerialTaskManager
+
+green.service.sat              = (abc)
+green.service.sat.remove       = za.ac.sun.cs.green.service.canonizer.RedundantConstraintRemover
+green.service.sat.reduce       = za.ac.sun.cs.green.service.canonizer.VariableRemover
+green.service.sat.order        = za.ac.sun.cs.green.service.canonizer.OrderingService
+green.service.sat.renameVar    = za.ac.sun.cs.green.service.canonizer.VariableRenamer
+green.service.sat.renameAlph   = za.ac.sun.cs.green.service.canonizer.AlphabetRenamer
+green.service.sat.abc          = za.ac.sun.cs.green.service.abc.ABCService
+
+green.service.count              = (abc)
+green.service.count.remove       = za.ac.sun.cs.green.service.canonizer.RedundantConstraintRemover
+green.service.count.reduce       = za.ac.sun.cs.green.service.canonizer.VariableRemover
+green.service.count.order        = za.ac.sun.cs.green.service.canonizer.OrderingService
+green.service.count.renameVar    = za.ac.sun.cs.green.service.canonizer.VariableRenamer
+green.service.count.renameAlph   = za.ac.sun.cs.green.service.canonizer.AlphabetRenamer
+green.service.count.abc          = za.ac.sun.cs.green.service.abc.ABCCountService
+
+#green.store = za.ac.sun.cs.green.store.redis.RedisStore
+
+search.depth_limit = 13

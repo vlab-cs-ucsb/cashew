@@ -1,0 +1,23 @@
+classpath=${jpf-security}/build/examples
+sourcepath=${jpf-security}/src/examples
+
+@using jpf-security
+@using jpf-symbc
+
+target=benchmarks.MergeSortJDK15
+
+shell=wcanalysis.WorstCaseAnalyzer
+
+symbolic.dp=z3	
+
+# Set history size for the stateful decision policy
+symbolic.wc.policy.history.size=1
+symbolic.worstcase.policy.inputsize=8
+symbolic.worstcase.input.max=50
+
+symbolic.worstcase.verbose=true
+symbolic.worstcase.outputpath=${jpf-security}/merge_sort_result
+
+symbolic.method=benchmarks.java15.util.Arrays.sort(con)
+
+#symbolic.debug=true

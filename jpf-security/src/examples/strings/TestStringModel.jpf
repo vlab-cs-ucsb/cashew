@@ -1,0 +1,6 @@
+target = strings.TestStringModel
+
+classpath=${jpf-security}/build/main;${jpf-security}/build/examples
+sourcepath=${jpf-security}/src/examples
+
+listener = gov.nasa.jpf.symbc.SymbolicListener

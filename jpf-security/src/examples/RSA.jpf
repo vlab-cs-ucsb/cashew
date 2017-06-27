@@ -1,0 +1,9 @@
+target=RSA
+symbolic.method=RSA.encrypt(sym)
+
+classpath=${jpf-security}/build/examples
+sourcepath=${jpf-security}/src/examples
+listener = sidechannel.TimingChannelListener
+
+symbolic.min_int=-1000000
+symbolic.max_int=1000000

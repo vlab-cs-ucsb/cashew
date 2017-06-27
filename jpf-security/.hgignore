@@ -1,0 +1,20 @@
+syntax: glob
+
+build.properties
+nbproject/private/*
+build/*
+dist/*
+vis/*
+heuristics*/*
+bin/
+*.class
+*~
+*.DS_Store
+hs_err_pid*.log
+.classpath
+.settings/
+.project
+tools/*
+*.dot
+*.orig
+*.swp

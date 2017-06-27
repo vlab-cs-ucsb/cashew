@@ -1,0 +1,9 @@
+base=/home/rodykers/cmu/Repositories/engagement/engagement_1/spf_analysis/ImageProcessor
+
+target=drivers.MainIntensify
+classpath=${base}/bin
+sourcepath=${base}/src
+
+symbolic.dp=z3bitvector
+
+target.args=2

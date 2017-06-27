@@ -1,0 +1,30 @@
+classpath=${jpf-security}/build/examples
+sourcepath=${jpf-security}/src/examples
+
+target=challenge4.Main
+
+@using jpf-security
+@using jpf-symbc
+
+shell=wcanalysis.WorstCaseAnalyzer
+symbolic.min_char=0
+symbolic.max_char=102
+symbolic.dp=z3
+#symbolic.bvlength=64
+
+symbolic.optimizechoices=false
+symbolic.worstcase.heuristic.nosolver=true;
+
+# Set history size for the stateful decision policy
+symbolic.wc.history.size=0
+
+symbolic.worstcase.policy.inputsize=8
+symbolic.worstcase.input.max=20
+
+symbolic.worstcase.verbose=true
+symbolic.worstcase.outputpath=${jpf-security}/challenge4_results
+
+symbolic.method=challenge4.DelimSearch.search(con#con)
+symbolic.heuristic.measuredmethods=challenge4.DelimSearch.search(con#con)
+
+#symbolic.debug=true

@@ -1,0 +1,14 @@
+@include=../Dijkstra.jpf
+@include=heuristic_setup.jpf
+
+symbolic.method=benchmarks.Dijkstra.runDijkstra(con#con#con)
+
+target.args=3
+
+# Seems necessary to use choco -- z3 finds arrayindexoutofbounds!
+symbolic.dp=choco
+# use heuristic listener
+#listener=wcanalysis.heuristic.HeuristicListener
+
+# use counts listener
+listener=wcanalysis.heuristic.PolicyGeneratorListener

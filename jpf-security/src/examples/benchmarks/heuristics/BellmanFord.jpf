@@ -1,0 +1,12 @@
+@include=../BellmanFord.jpf
+@include=heuristic_setup.jpf
+
+symbolic.method=benchmarks.BellmanFord.runBellmanFord(con#con#con)
+
+target.args=3
+
+# use heuristic listener
+#listener=wcanalysis.heuristic.HeuristicListener
+
+# use counts listener
+listener=wcanalysis.heuristic.PolicyGeneratorListener

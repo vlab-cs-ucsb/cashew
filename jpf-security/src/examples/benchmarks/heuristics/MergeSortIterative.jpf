@@ -1,0 +1,16 @@
+@include=../MergeSortIterative.jpf
+@include=heuristic_setup.jpf
+
+target.args=8
+symbolic.method=benchmarks.MergeSortIterative.iterativeMergesort(con)
+
+symbolic.dp=z3
+
+# Set history size for the stateful decision policy
+symbolic.wc.policy.history.size=10
+
+# use heuristic listener
+listener=wcanalysis.heuristic.HeuristicListener
+
+# use counts listener
+#listener=wcanalysis.heuristic.PolicyGeneratorListener

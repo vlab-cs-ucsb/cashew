@@ -1,0 +1,13 @@
+@include=../RedBlackTreeSearch.jpf
+@include=heuristic_setup.jpf
+
+symbolic.method=benchmarks.rbtree.RedBlackTree.treeSearch(con#sym);benchmarks.rbtree.RedBlackTree.treeInsert(con)
+
+target.args=3
+
+symbolic.dp=choco
+# use heuristic listener
+#listener=wcanalysis.heuristic.HeuristicListener
+
+# use counts listener
+listener=wcanalysis.heuristic.PolicyGeneratorListener

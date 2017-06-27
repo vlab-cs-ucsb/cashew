@@ -1,0 +1,14 @@
+domain{
+	choice20 : 0,1;
+	privpro0 : 0,2;
+	h0 : 0,3;
+	privpro1 : 0,2;
+	privcon0 : 0,3;
+	choice21 : 0,1;
+	choice10 : 0,1;
+	choice11 : 0,1;
+};
+
+usageProfile{
+	choice20==choice20 && privpro0==privpro0 && h0==h0 && privpro1==privpro1 && privcon0==privcon0 && choice21==choice21 && choice10==choice10 && choice11==choice11 : 100/100;
+};

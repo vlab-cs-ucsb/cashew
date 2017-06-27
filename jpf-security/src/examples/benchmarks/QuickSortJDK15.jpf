@@ -1,0 +1,12 @@
+target=benchmarks.QuickSortJDK15
+target.args=5
+
+classpath=${jpf-security}/build/examples
+sourcepath=${jpf-security}/src/examples
+
+symbolic.min_int=-100
+symbolic.max_int=100
+symbolic.dp=z3
+listener = sidechannel.singlerun.SideChannelQuantifier
+
+sidechannel = timing

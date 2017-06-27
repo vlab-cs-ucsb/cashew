@@ -1,0 +1,20 @@
+target=RSASimplified
+#symbolic.method=RSASimplified.modPowSimple(sym#sym#con)
+#symbolic.method=RSASimplified.modPowFast1(sym#sym#con)
+#symbolic.method=RSASimplified.modPowFast(sym#sym#con)
+
+symbolic.reliability.tmpDir=${jpf-security}/build/tmp
+symbolic.reliability.omegaPath=${jpf-security}/omega/omega_calc/obj/oc
+symbolic.reliability.lattePath=${jpf-security}/latte-integrale-1.7.3/bin/count
+
+classpath=${jpf-security}/build/examples
+sourcepath=${jpf-security}/src/examples
+
+#listener = sidechannel.TimingChannelListener
+listener = sidechannel.multirun.MaximizingChannelCapacityListener
+
+#symbolic.dp=z3
+symbolic.dp=no_solver
+
+symbolic.min_int=0
+symbolic.max_int=5

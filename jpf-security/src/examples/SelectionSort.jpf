@@ -1,0 +1,12 @@
+target=SelectionSort
+symbolic.method=SelectionSort.sort(sym)
+
+
+classpath=${jpf-security}/build/examples
+sourcepath=${jpf-security}/src/examples
+
+listener = sidechannel.TimingChannelListener
+symbolic.min_int=-100
+symbolic.max_int=100
+
+

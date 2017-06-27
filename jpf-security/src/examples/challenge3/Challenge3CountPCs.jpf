@@ -1,0 +1,34 @@
+target = challenge3.Challenge3
+
+classpath=${jpf-security}/build/main;${jpf-security}/build/examples
+sourcepath=${jpf-security}/src/examples
+
+listener=sidechannel.WCTimeListenerStrings
+
+symbolic.strings=true
+symbolic.string_dp=ABC
+symbolic.string_dp_timeout_ms=3000
+
+vm.storage.class=nil
+
+sidechannel.high_input_size = 3
+
+
+symbolic.debug = true
+
+symbolic.dp=z3bitvector
+
+symbolic.min_int=1
+symbolic.max_int=64
+
+symbolic.min_byte=1
+symbolic.max_byte=64
+
+sidechannel.min_high=1
+sidechannel.max_high=64
+
+sidechannel.verbose = true
+
+
+
+

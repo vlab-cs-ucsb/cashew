@@ -1,0 +1,5 @@
+target=benchmarks.com.jcraft.jzlib.examples.symbolic.JZlibInflate
+
+classpath=${jpf-security}/build/examples
+sourcepath=${jpf-security}/src/examples
+

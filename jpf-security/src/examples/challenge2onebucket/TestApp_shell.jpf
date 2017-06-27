@@ -1,0 +1,28 @@
+classpath=${jpf-security}/build/examples
+sourcepath=${jpf-security}/src/examples
+
+target=challenge2onebucket.TestApp
+
+@using jpf-security
+@using jpf-symbc
+
+shell=wcanalysis.WorstCaseAnalyzer
+#symbolic.min_char=0
+symbolic.max_char=127
+symbolic.dp=z3
+#symbolic.worstcase.heuristic.nosolver=true
+symbolic.optimizechoices=false
+
+# Set history size for the stateful decision policy
+symbolic.wc.policy.history.size=3
+
+symbolic.worstcase.policy.inputsize=2
+symbolic.worstcase.input.max=10
+
+symbolic.worstcase.verbose=true
+symbolic.worstcase.outputpath=${jpf-security}/challenge2onebucket_results_nosolver_bla
+
+symbolic.method=challenge2onebucket.util.HashTable.get(con),challenge2onebucket.util.HashTable.put(con#con)
+symbolic.heuristic.measuredmethods=challenge2onebucket.util.HashTable.get(con)
+
+#symbolic.debug=true

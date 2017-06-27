@@ -1,0 +1,20 @@
+target=sidechannel.darmstadt.RelaxPC
+
+classpath=${jpf-security}/build/main;${jpf-security}/build/examples
+sourcepath=${jpf-security}/src/examples
+
+listener=sidechannel.multirun.MultiRunListener
+
+greedy=true
+
+multirun.num_run = 1
+sidechannel.high_input_size = 3
+
+sidechannel.min_high=-1000000
+sidechannel.max_high=1000000
+
+SMT.theory=linear
+
+sidechannel.smt2 = ${jpf-security}/build/tmp/relaxPC.smt2
+
+sidechannel.verbose = false

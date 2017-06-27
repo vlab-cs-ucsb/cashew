@@ -1,0 +1,56 @@
+% This file was created by matlab2tikz.
+%
+%The latest updates can be retrieved from
+%  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
+%where you can also make suggestions and rate matlab2tikz.
+%
+\begin{tikzpicture}
+
+\begin{axis}[%
+width=7.724in,
+height=4.503in,
+at={(1.296in,0.608in)},
+scale only axis,
+xmin=0,
+xmax=10,
+xlabel={Number of Guesses},
+ymin=0,
+ymax=50,
+ylabel={Running Time (s)},
+axis background/.style={fill=white},
+legend style={legend cell align=left,align=left,legend plot pos=left,draw=black}
+]
+\addplot [color=black,solid]
+  table[row sep=crcr]{%
+0	0\\
+1	0.86\\
+2	0.91\\
+3	0.89\\
+4	0.89\\
+5	0.9\\
+6	0.91\\
+7	0.93\\
+8	0.95\\
+9	0.95\\
+10	0.99\\
+};
+\addlegendentry{Complete SE};
+
+\addplot [color=black,dashed]
+  table[row sep=crcr]{%
+0	0\\
+1	0.87\\
+2	1.6\\
+3	3.25\\
+4	6.89\\
+5	11.85\\
+6	19.07\\
+7	24.93\\
+8	32.86\\
+9	37.78\\
+10	44.19\\
+};
+\addlegendentry{Single-run SE};
+
+\end{axis}
+\end{tikzpicture}%

@@ -1,0 +1,11 @@
+target=Huffman
+symbolic.method=Huffman.compress(sym)
+
+classpath=${jpf-security}/build/examples
+sourcepath=${jpf-security}/src/examples
+listener = sidechannel.TimingChannelListener
+
+symbolic.min_int=0
+symbolic.max_int=255
+symbolic.min_char=0
+symbolic.max_char=255

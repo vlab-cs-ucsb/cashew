@@ -1,0 +1,14 @@
+@include=../InsertionSort.jpf
+@include=heuristic_setup.jpf
+
+symbolic.dp=choco
+
+target.args=3
+listener=wcanalysis.heuristic.PolicyGeneratorListener
+#listener=wcanalysis.heuristic.HeuristicListener
+
+# Set history size for the stateful decision policy
+symbolic.wc.policy.history.size=0
+symbolic.optimizechoices=false
+
+symbolic.method=benchmarks.InsertionSort.sort(con)

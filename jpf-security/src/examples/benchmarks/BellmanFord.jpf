@@ -1,0 +1,10 @@
+target=benchmarks.BellmanFord
+target.args=3
+
+
+classpath=${jpf-security}/build/examples
+sourcepath=${jpf-security}/src/examples
+
+symbolic.min_int=-1000
+symbolic.max_int=1000
+symbolic.dp=z3

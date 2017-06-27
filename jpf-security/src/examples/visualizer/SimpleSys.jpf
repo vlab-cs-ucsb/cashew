@@ -1,0 +1,53 @@
+target = visualizer.SimpleSys
+classpath = ${jpf-security}/build/examples
+sourcepath = ${jpf-security}/src/examples
+
+symbolic.method=visualizer.SimpleSys.compAB(sym#sym)
+
+## Filter to apply when building tree
+#symbolic.tree.filter=gov.nasa.jpf.symbc.tree.Filter$InvokeInstrFilter
+
+## Listener for DOT visualization of the sym exe tree
+#symbolic.visualizer.outputformat=pdf
+#symbolic.visualizer.outputpath=${jpf-security}/
+#listener = gov.nasa.jpf.symbc.tree.visualizer.DOTVisualizerListener
+
+## Listener for interactive visualization of the sym exe tree
+#listener = tree.visualizer.InteractiveVisualizerListener
+
+## Listener for interactive visualization of the sym exe tree
+#listener = tree.visualizer.InteractiveVisualizerListener
+
+## Listener for JSON output of the sym exe tree
+#symbolic.visualizer.outputpath=${jpf-security}/
+#listener = tree.visualizer.JSONListener
+
+## Listener for visualization of the "cost" of the sym exe tree
+symbolic.cost.visualizer.outputpath= ${jpf-security}/cost.dot
+listener = tree.cost.DOTCostListener
+
+## CG construction
+#symbolic.cg.visualizer.outputpath=${jpf-security}/vis/callgraph.dot
+#symbolic.tree.filter=gov.nasa.jpf.symbc.tree.Filter$InvokeInstrFilter
+#listener = tree.cf.DOTCallGraphListener
+
+## Count PC choices
+
+#listener = wcanalysis.heuristic.PolicyGeneratorListener
+symbolic.cfg.visualizer.outputpath=${jpf-security}/vis
+#optional:
+symbolic.cfg.visualizer.showinstructions=true
+symbolic.cfg.serializer.outputpath=${jpf-security}/serialized
+
+## heuristic listener
+listener = tree.cf.cfg.HeuristicListener
+symbolic.cfg.deserialized.path=${jpf-security}/serialized
+
+
+jvm.insn_factory.class=gov.nasa.jpf.symbc.SymbolicInstructionFactory
+search.multiple_errors=true
+
+
+
+
+

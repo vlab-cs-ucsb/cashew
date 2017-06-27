@@ -1,0 +1,11 @@
+target=Brackets
+symbolic.method=Brackets.brackets(sym)
+
+classpath=${jpf-security}/build/examples
+sourcepath=${jpf-security}/src/examples
+
+listener = sidechannel.TimingChannelListener
+symbolic.min_int=1
+symbolic.max_int=10
+
+

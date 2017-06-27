@@ -1,0 +1,70 @@
+% This file was created by matlab2tikz.
+%
+%The latest updates can be retrieved from
+%  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
+%where you can also make suggestions and rate matlab2tikz.
+%
+\begin{tikzpicture}
+
+\begin{axis}[%
+width=7.724in,
+height=4.503in,
+at={(1.296in,0.608in)},
+scale only axis,
+xmin=0,
+xmax=20,
+xlabel={Password Length},
+ymin=0,
+ymax=6,
+ylabel={Time (s)},
+axis background/.style={fill=white},
+title={Time vs. Password Length for Alphabet Size 32}
+]
+\addplot [color=black,dashed,forget plot]
+  table[row sep=crcr]{%
+1	0.69\\
+2	0.77\\
+3	0.849\\
+4	0.951\\
+5	1.079\\
+6	1.264\\
+7	1.452\\
+8	1.672\\
+9	1.869\\
+10	2.048\\
+11	2.332\\
+12	2.591\\
+13	2.872\\
+14	3.17\\
+15	3.509\\
+16	3.854\\
+17	4.354\\
+18	4.669\\
+19	5.272\\
+20	5.859\\
+};
+\addplot [color=black,solid,forget plot]
+  table[row sep=crcr]{%
+1	0.486\\
+2	0.501\\
+3	0.5\\
+4	0.537\\
+5	0.531\\
+6	0.552\\
+7	0.555\\
+8	0.573\\
+9	0.586\\
+10	0.597\\
+11	0.613\\
+12	0.646\\
+13	0.654\\
+14	0.672\\
+15	0.7\\
+16	0.717\\
+17	0.757\\
+18	0.785\\
+19	0.807\\
+20	0.824\\
+};
+\end{axis}
+\end{tikzpicture}%

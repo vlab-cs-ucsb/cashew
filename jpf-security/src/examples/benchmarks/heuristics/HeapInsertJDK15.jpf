@@ -1,0 +1,13 @@
+@include=../HeapInsertJDK15.jpf
+@include=heuristic_setup.jpf
+
+symbolic.method=benchmarks.java15.util.PriorityQueue.add(con),benchmarks.java15.util.PriorityQueue.addMask(con)
+#symbolic.method=benchmarks.java15.util.PriorityQueue.add(con)
+target.args=6
+
+symbolic.dp=z3
+# use heuristic listener
+#listener=wcanalysis.heuristic.HeuristicListener
+
+# use counts listener
+listener=wcanalysis.heuristic.PolicyGeneratorListener

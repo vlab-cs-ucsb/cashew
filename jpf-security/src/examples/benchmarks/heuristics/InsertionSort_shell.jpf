@@ -1,0 +1,20 @@
+@include=../InsertionSort.jpf
+
+@using jpf-security
+@using jpf-symbc
+
+shell=wcanalysis.WorstCaseAnalyzer
+
+symbolic.worstcase.policy.inputsize=2
+symbolic.worstcase.input.max=40
+
+symbolic.worstcase.verbose=true
+symbolic.worstcase.outputpath=${jpf-security}/insertion_sort_results
+
+symbolic.wc.policy.history.size=0
+
+symbolic.method=benchmarks.InsertionSort.sort(con)
+
+symbolic.dp=z3
+
+symbolic.optimizechoices=false

@@ -1,0 +1,22 @@
+@include=../SortedListInsert.jpf
+
+@using jpf-security
+@using jpf-symbc
+
+shell=wcanalysis.WorstCaseAnalyzer
+
+symbolic.dp=z3
+
+# Set history size for the stateful decision policy
+symbolic.wc.policy.history.size=0
+
+symbolic.worstcase.policy.inputsize=3
+symbolic.worstcase.input.max=20
+
+symbolic.worstcase.verbose=true
+symbolic.worstcase.outputpath=${jpf-security}/sorted_list_insert_results
+
+symbolic.method=benchmarks.SortedListInsert$List.insert(con),benchmarks.SortedListInsert$List.insertMask(con)
+symbolic.heuristic.measuredmethods=benchmarks.SortedListInsert$List.insert(con)
+
+#symbolic.debug=true

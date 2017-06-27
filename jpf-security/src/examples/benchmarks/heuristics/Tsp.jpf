@@ -1,0 +1,13 @@
+@include=../Tsp.jpf
+@include=heuristic_setup.jpf
+
+symbolic.method=benchmarks.Tsp$TspSolver.solve()
+
+target.args=3
+
+symbolic.dp=z3
+# use heuristic listener
+listener=wcanalysis.heuristic.HeuristicListener
+
+# use counts listener
+#listener=wcanalysis.heuristic.PolicyGeneratorListener

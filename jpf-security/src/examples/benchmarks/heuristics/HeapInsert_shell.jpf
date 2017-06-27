@@ -1,0 +1,28 @@
+classpath=${jpf-security}/build/examples
+sourcepath=${jpf-security}/src/examples
+
+@using jpf-security
+@using jpf-symbc
+
+target=benchmarks.HeapInsertJDK15
+
+shell=wcanalysis.WorstCaseAnalyzer
+
+symbolic.dp=z3
+
+# Set history size for the stateful decision policy
+symbolic.wc.policy.history.size=0
+
+symbolic.worstcase.policy.inputsize=2
+symbolic.worstcase.input.max=100
+
+symbolic.optimizechoices=false
+
+symbolic.worstcase.verbose=true
+symbolic.worstcase.outputpath=${jpf-security}/sorted_list_insert_results
+
+symbolic.method=benchmarks.java15.util.PriorityQueue.add(con),benchmarks.java15.util.PriorityQueue.addMask(con)
+symbolic.heuristic.measuredmethods=benchmarks.java15.util.PriorityQueue.add(con)
+
+
+#symbolic.debug=true

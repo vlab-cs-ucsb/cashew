@@ -1,0 +1,16 @@
+target=SkipList
+symbolic.method=SkipList.insert(sym#sym)
+
+classpath=${jpf-security}/build/examples,${jpf-symbc}/build/main,${jpf-core}/build/main
+sourcepath=${jpf-security}/src/examples
+listener = sidechannel.TimingChannelListener
+
+symbolic.min_int=0
+symbolic.max_int=10
+symbolic.min_double=0
+symbolic.max_double=10
+
+coverage.include=*.*
+coverage.show_methods=true
+coverage.show_bodies=true
+coverage.show_methods=true

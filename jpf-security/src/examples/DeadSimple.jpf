@@ -1,0 +1,11 @@
+target=DeadSimple
+symbolic.method=DeadSimple.takeTime(sym)
+
+classpath=${jpf-security}/build/examples
+sourcepath=${jpf-security}/src/examples
+
+listener = sidechannel.TimingChannelListener
+symbolic.min_int=-100
+symbolic.max_int=100
+
+

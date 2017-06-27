@@ -1,0 +1,13 @@
+@using = jpf-nhandler
+target=ZipCompress
+symbolic.method = ZipCompress.compress(sym)
+
+classpath=${jpf-security}/build/examples
+sourcepath=${jpf-security}/src/examples
+
+symbolic.min_int=0
+symbolic.max_int=99
+symbolic.dp=z3
+#listener = sidechannel.TimingChannelListener
+
+nhandler.delegateUnhandledNative = true

@@ -1,0 +1,30 @@
+target=challenge3.Challenge3Adaptive
+
+classpath=${jpf-security}/build/examples
+sourcepath=${jpf-security}/src/examples
+
+mutirun.secure_method=challenge3.NaivePWCheck.verifyPassword
+
+listener=sidechannel.multirun.adaptive.selfcomp.GreedyTreeSelfCompListener
+
+greedy=true
+
+adaptive=selfcomp
+
+multirun.num_run = 3
+sidechannel.high_input_size = 3
+
+symbolic.min_byte=1
+symbolic.max_byte=62
+
+symbolic.min_int=1
+symbolic.max_int=62
+
+sidechannel.min_high=1
+sidechannel.max_high=62
+
+sidechannel.tmpDir = ${jpf-security}/build/tmp
+
+symbolic.debug = false
+
+sidechannel.verbose = false

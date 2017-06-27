@@ -1,0 +1,16 @@
+target=BubbleSort
+symbolic.method=BubbleSort.sort(sym)
+target.args=4
+
+classpath=${jpf-security}/build/examples
+sourcepath=${jpf-security}/src/examples
+
+listener = sidechannel.TimingChannelListener
+symbolic.min_int=0
+symbolic.max_int=127
+symbolic.min_long=0
+symbolic.max_long=127
+
+symbolic.dp=choco
+
+#search.depth_limit = 5

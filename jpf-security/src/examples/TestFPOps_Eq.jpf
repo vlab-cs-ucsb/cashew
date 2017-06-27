@@ -1,0 +1,13 @@
+target=TestFPOps
+symbolic.method = TestFPOps.testFPEq(sym)
+
+classpath=${jpf-security}/build/examples
+sourcepath=${jpf-security}/src/examples
+
+symbolic.min_int=0
+symbolic.max_int=100000
+symbolic.min_double=-1000.0
+symbolic.max_double=1000.0
+symbolic.dp=z3bitvector
+search.multiple_errors=true
+listener = sidechannel.TimingChannelListener

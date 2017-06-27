@@ -1,0 +1,4 @@
+The project uses BlueCove bluetooth stack. It is compiled with Java 1.6 and run
+on a 32 bit VM. As the current version of the BlueCove has some issues with new
+Mac OsX versions, the project uses the Jar downloaded from the source below.
+https://github.com/ixd-hof/Processing/tree/master/Examples/Input/Wiimote_BalanceBoard/code

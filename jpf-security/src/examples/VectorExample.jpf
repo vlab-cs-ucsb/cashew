@@ -1,0 +1,17 @@
+target=VectorExample
+symbolic.method=VectorExample.add(sym)
+
+sidechannel=timing
+
+classpath=${jpf-security}/build/examples
+sourcepath=${jpf-security}/src/examples
+
+#listener = sidechannel.singlerun.TimingChannelQuantifier,.symbc.symexectree.visualizer.SymExecTreeVisualizerListener
+#listener = .symbc.symexectree.visualizer.SymExecTreeVisualizerListener
+listener = .symbc.SymbolicListener
+symbolic.min_int=0
+symbolic.max_int=2
+#symbolic.dp=z3
+
+#symbolic.visualizer.basepath=${jpf-symbc}/prettyprint
+#symbolic.visualizer.outputformat=pdf

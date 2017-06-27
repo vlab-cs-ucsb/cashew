@@ -1,0 +1,10 @@
+target=BasicArrayExample
+symbolic.method=BasicArrayExample.get(sym)
+
+classpath=${jpf-security}/build/examples
+sourcepath=${jpf-security}/src/examples
+
+listener = sidechannel.TimingChannelListener
+symbolic.min_int=0
+symbolic.max_int=1000
+

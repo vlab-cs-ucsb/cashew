@@ -1,0 +1,15 @@
+@include=../QuickSortJDK15.jpf
+@include=heuristic_setup.jpf
+
+symbolic.method=benchmarks.java15.util.Arrays.sort(con)
+
+target.args=5
+
+symbolic.dp=choco
+# use heuristic listener
+#listener=wcanalysis.heuristic.HeuristicListener
+
+#symbolic.cfg.visualizer.showseq=true
+
+# use counts listener
+listener=wcanalysis.heuristic.PolicyGeneratorListener

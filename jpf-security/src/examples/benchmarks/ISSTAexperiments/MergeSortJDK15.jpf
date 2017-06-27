@@ -1,0 +1,60 @@
+classpath=${jpf-security}/build/examples
+sourcepath=${jpf-security}/src/examples
+
+target=benchmarks.MergeSortJDK15
+
+symbolic.method=benchmarks.java15.util.Arrays.sort(con)
+nvalue=10
+policyat=7
+historysize=0
+target.args=${nvalue}
+resultsdir=/home/rodykers/cmu/Repositories/issta-experiments/rody/MergeSort/his${historysize}/${nvalue}
+
+symbolic.dp=z3
+
+# use heuristic listener
+#listener=wcanalysis.heuristic.HeuristicListener
+
+# use counts listener
+#listener=wcanalysis.heuristic.PolicyGeneratorListener;gov.nasa.jpf.listener.CoverageAnalyzer
+
+symbolic.wc.policy.history.size=${historysize}
+symbolic.optimizechoices=false
+
+symbolic.debug=true
+
+##
+## Heuristic results as .csv file
+##
+#publisher=wcanalysis.heuristic.HeuristicResultsPublisher
+#publisher=wcanalysis.heuristic.PolicyResultsPublisher
+#report.console.class=${publisher}
+report.console.wc.policy.resultsdir=${resultsdir}/../${policyat}/policy
+report.console.wc.heuristic.resultsdir=${resultsdir}/heuristic
+report.console.wc.smtlib=true
+report.console.wc.omega=true
+
+##
+## Heuristic and counts collector listener setup
+##
+symbolic.worstcase.verbose=true
+
+## Visualization
+symbolic.wc.visualizer.showinstructions=false
+symbolic.wc.policy.visualizer.outputpath=${resultsdir}/../${policyat}/policy/vis
+symbolic.wc.heuristic.visualizer.outputpath=${resultsdir}/heuristic/vis
+
+## Serialization
+symbolic.wc.policy.serializer.outputpath=${resultsdir}/../${policyat}/serialized
+symbolic.wc.heuristic.serializer.inputpath=${symbolic.wc.policy.serializer.outputpath}
+
+
+
+##### OUTPUT COVERAGE ######
+coverage.show_methods=true
+coverage.show_bodies=false
+coverage.exclude_handlers=false
+coverage.show_branches=true
+coverage.loaded_only=true
+coverage.show_requirements=false
+#report.console.file=${resultsdir}/policy/coveragereport.txt

@@ -1,0 +1,66 @@
+target = cashew.Sorting
+
+# Override this with array length and name of algorithm
+target.args = 0,Foobar
+
+# alphabet size given by min and max for byte and int
+# for abc to work best set min=0 max= 2^n - 1
+
+symbolic.min_int=0
+#symbolic.max_int=63
+
+#symbolic.min_byte=0
+#symbolic.max_byte=31
+
+classpath=${jpf-security}/build/main;${jpf-security}/build/examples
+sourcepath=${jpf-security}/src/examples
+
+listener=sidechannel.GreenListener
+
+symbolic.debug = false
+#symbolic.dp=z3bitvector
+
+#symbolic.reliability.tmpDir=${jpf-security}/build/tmp
+#symbolic.reliability.omegaPath=${jpf-security}/tools/omega/oc
+#symbolic.reliability.lattePath=${jpf-security}/tools/latte-integrale-1.7.3/bin/count
+#sidechannel.verbose = false
+#popl.output.dir=/home/vlab/tacas/benchmarks
+#popl.output.save=true
+
+# Count int tuples
+model_count.mode=abc.ints.usemodelcounters
+
+# Override this with desired bit width bound
+model_count.string_length_bound = 0
+
+# Unused because we are counting int tuples
+#model_count.vars = 
+
+symbolic.green=true
+
+green.services = sat, count
+green.taskmanager = za.ac.sun.cs.green.taskmanager.SerialTaskManager
+
+green.service.sat              = (factor (reduce (lia (order (renameVar (renameAlp (abc)))))))
+green.service.sat.factor       = za.ac.sun.cs.green.service.factorizer.SATFactorizerService
+green.service.sat.lia          = za.ac.sun.cs.green.service.canonizer.LIATermNormalizationService
+green.service.sat.reduce       = za.ac.sun.cs.green.service.canonizer.VariableRemover
+green.service.sat.order        = za.ac.sun.cs.green.service.canonizer.OrderingService
+green.service.sat.renameVar    = za.ac.sun.cs.green.service.canonizer.VariableRenamer
+green.service.sat.renameAlp    = za.ac.sun.cs.green.service.canonizer.AlphabetRenamer
+green.service.sat.rename       = za.ac.sun.cs.green.service.canonizer.Renamer
+green.service.sat.abc          = za.ac.sun.cs.green.service.abc.ABCService
+
+
+green.service.count              = (factor (reduce (lia (order (renameVar (renameAlp (abc)))))))
+green.service.count.factor       = za.ac.sun.cs.green.service.factorizer.CountFactorizerService
+green.service.count.lia          = za.ac.sun.cs.green.service.canonizer.LIATermNormalizationService
+green.service.count.reduce       = za.ac.sun.cs.green.service.canonizer.VariableRemover
+green.service.count.order        = za.ac.sun.cs.green.service.canonizer.OrderingService
+green.service.count.renameVar    = za.ac.sun.cs.green.service.canonizer.VariableRenamer
+green.service.count.renameAlp    = za.ac.sun.cs.green.service.canonizer.AlphabetRenamer
+green.service.count.rename       = za.ac.sun.cs.green.service.canonizer.Renamer
+green.service.count.abc          = za.ac.sun.cs.green.service.abc.ABCCountService
+
+green.store = za.ac.sun.cs.green.store.redis.RedisStore
+

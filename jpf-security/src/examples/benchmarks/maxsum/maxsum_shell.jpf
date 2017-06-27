@@ -1,0 +1,28 @@
+classpath=${jpf-security}/build/examples
+sourcepath=${jpf-security}/src/examples
+
+target=benchmarks.maxsum.MaxSum
+
+#symbolic.strings=true
+
+@using jpf-security
+@using jpf-symbc
+shell=wcanalysis.WorstCaseAnalyzer
+
+symbolic.dp=z3bitvector
+symbolic.min_int=0
+symbolic.max_int=5
+#target.args=2
+# Set history size for the stateful decision policy
+symbolic.wc.history.size=0
+
+symbolic.worstcase.policy.inputsize=2
+symbolic.worstcase.input.max=6
+#symbolic.worstcase.reusepolicy=true
+
+symbolic.worstcase.verbose=true
+symbolic.worstcase.outputpath=${jpf-security}/maxsum
+
+symbolic.method=benchmarks.maxsum.MaxSum.maxSubSum4(con)
+
+#symbolic.debug=true

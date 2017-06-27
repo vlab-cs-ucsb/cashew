@@ -1,0 +1,19 @@
+target=HuffmanTest_String
+symbolic.method=HuffmanCode.buildTreeStr(sym)
+
+classpath=${jpf-security}/build/examples
+sourcepath=${jpf-security}/src/examples
+listener = gov.nasa.jpf.symbc.sequences.SymbolicSequenceListener
+
+
+symbolic.strings = true
+#symbolic.dp=choco
+symbolic.string_dp=ABC
+symbolic.string_dp_timeout_ms=3000
+symbolic.debug=true
+
+
+#symbolic.min_int=0
+#symbolic.max_int=255
+#symbolic.min_char=0
+#symbolic.max_char=255

@@ -1,0 +1,4 @@
+target=benchmarks.SortedListInsert
+
+classpath=${jpf-security}/build/examples
+sourcepath=${jpf-security}/src/examples

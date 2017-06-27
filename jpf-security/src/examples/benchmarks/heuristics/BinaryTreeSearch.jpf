@@ -1,0 +1,12 @@
+@include=../BinaryTreeSearch.jpf
+@include=heuristic_setup.jpf
+
+symbolic.method=benchmarks.BinaryTreeSearch$BinaryTree.search(con);benchmarks.BinaryTreeSearch$BinaryTree.insert(con)
+
+target.args=4
+
+# use heuristic listener
+#listener=wcanalysis.heuristic.HeuristicListener
+
+# use counts listener
+listener=wcanalysis.heuristic.PolicyGeneratorListener

@@ -1,0 +1,1 @@
+gk='PHAB_HOME=${HOME}/phab ; GREEN=${PHAB_HOME}/green ; SYMBC=${PHAB_HOME}/jpf-symbc ; CORE=${PHAB_HOME}/jpf-core ; java -Djava.library.path=/usr/local/lib -cp ${GREEN}/green.jar:${GREEN}/lib/antlr-4.5.3-complete.jar:${GREEN}/lib/jedis-2.0.0.jar:${GREEN}/bin:${SYMBC}/build/main:${CORE}/build/main edu.ucsb.cs.vlab.RunGreenKaluza'

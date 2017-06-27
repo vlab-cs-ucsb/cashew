@@ -1,0 +1,55 @@
+% This file was created by matlab2tikz.
+%
+%The latest updates can be retrieved from
+%  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
+%where you can also make suggestions and rate matlab2tikz.
+%
+\begin{tikzpicture}
+
+\begin{axis}[%
+width=7.724in,
+height=4.503in,
+at={(1.296in,0.608in)},
+scale only axis,
+xmin=0,
+xmax=10,
+xlabel={Password Length},
+ymin=0,
+ymax=1.4,
+ylabel={Entropy (bits)},
+axis background/.style={fill=white},
+title={Single Run Entropy vs. Password Length for Alphabet Size4},
+legend style={legend cell align=left,align=left,legend plot pos=left,draw=black}
+]
+\addplot [color=black,solid]
+  table[row sep=crcr]{%
+1	0.811278124459133\\
+2	1.01409765557392\\
+3	1.06480253835261\\
+4	1.07747875904729\\
+5	1.08064781422095\\
+6	1.08144007801437\\
+7	1.08163814396273\\
+8	1.08168766044981\\
+9	1.08170003957159\\
+10	1.08170313435203\\
+};
+\addlegendentry{$\text{F}_\text{1}$};
+
+\addplot [color=black,dashed]
+  table[row sep=crcr]{%
+1	0.811278124459133\\
+2	0.337290066617014\\
+3	0.11611507530477\\
+4	0.036874506253872\\
+5	0.0111738187212195\\
+6	0.00328186496980489\\
+7	0.000942544617458165\\
+8	0.000266154236357778\\
+9	7.41679851118586e-05\\
+10	2.04493468789655e-05\\
+};
+\addlegendentry{$\text{F}_\text{2}$};
+
+\end{axis}
+\end{tikzpicture}%
