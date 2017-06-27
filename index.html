@@ -1,0 +1,97 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Untitled Document.md</title><style></style></head><body id="preview">
+<hr>
+<h1><a id="Getting_Started_Guide_1"></a>Getting Started Guide</h1>
+<hr>
+<h2><a id="Cashew_4"></a>Cashew</h2>
+<p>Implementation built on the <a href="https://github.com/green-solver/green-solver">GreenSolver</a> framework.</p>
+<h5><a id="Contributions_8"></a>Contributions</h5>
+<ul>
+<li>New normalization procedure aimed at reducing constraints with the same number of solutions to the same normal form.</li>
+<li>Caching of model-counting objects in addition to model-counting results to fully exploit the reusability of parameterized model-counting constraint solvers.</li>
+<li>Support and normalization for string constraints</li>
+</ul>
+<h2><a id="Virtual_Machine_14"></a>Virtual Machine</h2>
+<p>VirtualBox, guest OS: Ubuntu 16.04<br><b>User: cashew</b><br><b>Password: cashew</b></p>
+<p>The VM includes pre-built and ready-to-use versions of:</p>
+<ul>
+<li><a href="https://cashew.vlab.cs.ucsb.edu/">Cashew</a></li>
+<li><a href="https://babelfish.arc.nasa.gov/trac/jpf/wiki/projects/jpf-symbc">Symbolic PathFinder</a></li>
+<li><a href="https://vlab.cs.ucsb.edu/ABC/">Automata-Based Model Counter (ABC Solver)</a></li>
+<li><a href="https://redis.io/">Redis</a></li>
+</ul>
+<p>This is all the software required to run the experiments described in our paper. We describe each experimental suite below and detail how to run them in the virtual machine.</p>
+<h2><a id="Experimental_Evaluation_of_the_Artifact_27"></a>Experimental Evaluation</h2>
+<h3><a id="Kaluza_28"></a>Kaluza</h3>
+<p>All scripts and datasets for this experimental suite can be found in /home/cashew/phab/green. To run the experiments
+reported in the paper, boot the VM, log in as cashew and run the following:</p>
+<pre><code>cd /home/cashew/phab/green
+./run.sh
+</code></pre>
+<p>The Kaluza dataset is a well-known benchmark of string constraints that are genreated by dynamic symbolic execution of real world JavaScript applications. The authors of the <a href="https://github.com/loiluu/smc">SMC solver</a> translated the satisfiable constraints to their input format and partition the dataset into two (1,342 constraints are contained in the SMC-Big dataset while the SMC-Small dataset contains 17,554). We removed all duplicate constraints (files are indistinguishable by diff) resulting in 359 constraints remaining in SMC-Big and 9,745 in SMC-Small. We include a directory containing these unique contraints.</p>
+<p>We perform two experiments over these constraints. First, we compare the total run-time to count the number of models for each constraint with and without the caching and normalization offered by Cashew. We report results for this experiment for SMC-Small, SMC-Big and the combined set of unique constraints.  Second, we disable each layer of our normalization scheme in turn to determine its impact on the number of equivalence classes, or orbits, our normalization scheme partitions the constraints into. The fewer orbits, the more hits to the cache. Again, we present our results for both SMC-Small, SMC-Big and the combined dataset.</p>
+<p>Both these experiments can be run using the run script included in our VM in the /home/cashew/phab/green directory. In this experiment, the Automata-Based Model Counter (ABC) is used to count the number of satisfying models to the constraints. Redis is used as a database to store results of queries. Our script flushes the cache, and then performs model-counting of all constraints using ABC with caching disabled and then enabled. Statistics for the execution time is collected for each case. The script then disables each layer of the normalization scheme in turn and again iterates over each constraint in the dataset, generating the data necessary to compute the number and sizes of the resultant orbits. Once all variants are finished, the total run-time with and without caching and the orbits sizes resulting from disabling each layer are displayed.</p>
+<p>All experiments were run for a maximum string length bound of 50. One could change this by modifying the model_count.string_length_bound argument in the configuration file.</p>
+<h3><a id="Symbolic_PathFinder_analysis_of_stringhandling_code_48"></a>Symbolic PathFinder analysis of string-handling code</h3>
+<p>All scripts and datasets for this experimental suite can be found in /home/cashew/phab/jpf-security/src/examples/SUBDIR, where SUBDIR is one of {crime, obscure, password, password2}.</p><p>To run the experiments reported in the paper:</p>
+<pre><code>cd /home/cashew/phab/jpf-security/src/examples/SUBDIR
+./run.sh
+</code></pre>
+<p>We use Symbolic PathFinder(SPF) with Cashew to symbolically execute Java programs that operate on strings. In order to support model-counting based quantative program analyses, we are interested in obtaining a model count for each leaf path constraint. ABC is again used as our model-counting constraint solver and also as a satisfiability solver for satisfiability queries made during symbolic execution. Redis is used as our store.</p>
+<p>We analyzed a set of four string-manipulating programs in which a side-channel could allow an attacker to gain some information about a secret value. These programs are referred to as <em>crime</em>, <em>obscure</em>, <em>password</em>, and <em>password2</em>. We used the <em>RockYou1k</em> dataset, a sample of 1,000 passwords taken from the RockYou leak, to generate possible secret values for each program. For each of the four programs, we include a script to run symbolic execution using the different secret values from the <em>RockYou1k</em> dataset under three different configurations. Each is run with no caching. It is run again with “trivial” caching, which stores the result of the query but performs no normalization of the key. It is finally run with both caching and normalization (Cashew). The cache is cleared between runs. The script aggregates both the total runtime and the hit/miss ratio under each configuration and displays this information to the user.</p>
+<h3><a id="Parameterized_Caching_60"></a>Parameterized Caching</h3>
+<p>All scripts and datasets for this experimental suite can be found in /home/cashew/phab/jpf-security/src/examples/sorting.</p>
+<p>To run the experiments reported in the paper:</p>
+<pre><code>
+cd /home/cashew/phab/jpf-security/src/examples/sorting
+./run.sh
+</code></pre>
+<p>Our last experimental suite evaluates our parameterized caching capabilities. In these experiments, we run an SPF-based quantatative program analysis on six different sorting algorithms. Again we count the number of solutions for each generative path constraint. For each sorting algorithm, we repeat symbolic execution using a different bound for model-counting. Since our constraints are now linear integer arithmetic constraints, the bound denotes the maximum number of bits that can be used to represent an integer. We experiments on bounds ranging from 16 and 64 incrementing by 4 each run.</p>
+<p>In this experimental suite, we are able to compare to Green. We did so by creating a configuration file that specified using the original Green’s functionality. We compare the total runtime across all bounds for each program for both Green and Cashew and display the results to the user.</p>
+<hr>
+<h2><a id="Cashew_Implementation_73"></a>Cashew Implementation</h2>
+<hr>
+<h2><a id="Cashew_Services_75"></a>Cashew Services</h2>
+<hr>
+<p>Adopting from Green, Cashew consists of multiple services. The user can choose which service(s) to apply through a configuration file. Green divides its functionality into 3 main services – a SAT Service, Model Service and Count Service – based on what kind of query the user wishes to make. The SAT Service returns whether a given constraint is satisfiable. The Model Service provides a satisfying solution to the query constraint. The Count Service returns the result of a model-counting query. While all 3 services are present in Cashew, the SAT Service and Model Service are idential to those provided by Green. All our contributions were made to the Count Service and all experiments use this service (specified in the configuration file as green.services = count)</p>
+<p>Additional services include slicers, canonizers and solvers. Slicers are services which partition the input constraint into connected components based on shared variables. Canonizers are services used to transform a given constraint to its normal form. Solvers provide integration between Cashew and a particular solver.</p>
+<p>Services added by our team were to implement our normalization scheme are:</p>
+<hr>
+<h5><a id="Preprocessing_Canonizers_85"></a>Preprocessing (Canonizers)</h5>
+<hr>
+<p>RedundantConstraintRemover- preprocessing service that removes redundant conjuncts appearing multiple times in the constraint. (i.e. c ^ f ^ c =&gt; c ^f)</p>
+<p>VariableRemover - preprocessing service that generates equivalences classes for variables in order to remove unnecessary variables (i.e. x &lt; 3 ^ y &gt; 0 ^ x = y =&gt; x &lt; 3 ^ x &gt; 0)</p>
+<hr>
+<h5><a id="Normalization_Canonizers_93"></a>Normalization (Canonizers)</h5>
+<hr>
+<p>OderingService - service that orders conjuncts within our constraint as described in our paper as the first step of our normalization scheme.</p>
+<p>VariableRenamer - service that renames the variables in a constraint in order of their appearance.</p>
+<p>AlphabetRenamer - service that performs the permutation of alphabet characters described in the paper.</p>
+<p>Our normalization scheme can be written as a composition of the above services.</p>
+<hr>
+<h5><a id="ModelCounting_Solers_Solvers_105"></a>Model-Counting Solers (Solvers)</h5>
+<hr>
+<p>ABCTranslatorService - service that translates a constraint given by Green’s AST into the constraint language supported by ABC.</p>
+<p>ABCCountService - service that uses this translation in order to send a model-counting query to ABC and receive a response and potentially a model-counting object to store.</p>
+<p>ABCService - service that uses the same translation to send a satisfiability query to ABC and receive a response.</p>
+<hr>
+<h5><a id="Parameterized_Caching_Solvers_115"></a>Parameterized Caching (Solvers)</h5>
+<hr>
+<p>In order to support parameterized caching in which both the model-counting object and the result of the model-counting query are stored, we extended the Count Service from the version implemented in Green. Through a flag in the configuration file (model_count.mode = abc.string.usemodelcounters), the user can specify whether or not model-counting objects will be stored in the cache.</p>
+<p>All configuration files used for our experiments are included in the appropriate directory in the VM. They specify:</p>
+<ul>
+<li>The types of service (SAT, Model, Count), specified by the “green.services” argument (e.g. green.services=count).</li>
+<li>What additional services define a particular type of service, specified using green.services.SERVICE_TYPE = (S1 (S2 (… ((SOLVER))).
+<ul>
+<li>Here, SERVICE_TYPE is either SAT, Model or Count.</li>
+<li>S1, S2, … etc are slicers or canonizers.</li>
+<li>SOLVER is the name of the solver to use.</li>
+<li>For example, we use green.services.count = (remove (reduce (order (renameVar (renameAlph (abc)))))) to specify the entire Cashew normalization scheme. The parathesis are used to specify that the order of application of each layer matters and must be done sequentially. Each component is then defined by a pointer to the appropriate class.</li>
+</ul>
+</li>
+<li>The store to use, specfied using the “green.store” argument (e.g. green.store = redis)</li>
+<li>Whether or not to enable the caching of model-counting objects, done through including model_count.mode = abc.string.usemodelcounters.</li>
+<li>The bound used for model-counting.</li>
+</ul>
+
+</body></html>
+
